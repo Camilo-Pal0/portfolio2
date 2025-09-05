@@ -1,0 +1,70 @@
+/* Ocultar checkbox */
+.mini-checkbox {
+  display: none;
+}
+
+/* === VARIABLES ESCALABLES === */
+.mini-toggle {
+  --bar-height: 2px;   /* grosor de la línea */
+  --gap: 5px;          /* espacio entre líneas */
+  --width: 20px;       /* ancho total del botón */
+
+  position: relative;
+  width: var(--width);
+  height: calc(var(--bar-height) * 3 + var(--gap) * 2);
+  cursor: pointer;
+  margin: auto;
+  display: block;
+}
+
+.mini-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--bar-height);
+  border-radius: calc(var(--bar-height) / 2);
+  background: #270063;
+  transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
+}
+
+.dark .mini-bar {
+  background: #ffffff;
+}
+
+/***** Posiciones *****/
+.mini-bar--top {
+  bottom: calc(50% + var(--gap) + var(--bar-height) / 2);
+  transition-property: bottom, transform;
+  transition-delay: calc(0s + 0.35s), 0s;
+}
+
+.mini-bar--middle {
+  top: calc(50% - var(--bar-height) / 2);
+  transition-property: opacity;
+  transition-delay: calc(0s + 0.35s);
+}
+
+.mini-bar--bottom {
+  top: calc(50% + var(--gap) + var(--bar-height) / 2);
+  transition-property: top, transform;
+  transition-delay: calc(0s + 0.35s), 0s;
+}
+
+/***** Animación checked *****/
+.mini-checkbox:checked + .mini-toggle .mini-bar--top {
+  bottom: calc(50% - var(--bar-height) / 2);
+  transform: rotate(135deg);
+  transition-delay: 0s, calc(0s + 0.35s);
+}
+
+.mini-checkbox:checked + .mini-toggle .mini-bar--middle {
+  opacity: 0;
+  transition-duration: 0s;
+  transition-delay: calc(0s + 0.35s);
+}
+
+.mini-checkbox:checked + .mini-toggle .mini-bar--bottom {
+  top: calc(50% - var(--bar-height) / 2);
+  transform: rotate(225deg);
+  transition-delay: 0s, calc(0s + 0.35s);
+}

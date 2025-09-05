@@ -2,6 +2,9 @@
 /* CSS */
 import "../styles/global.css";
 import "../styles/background.css"
+
+/* Components */
+import Header from "../components/Header.astro"
 ---
 
 <!doctype html>
@@ -14,7 +17,8 @@ import "../styles/background.css"
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<div class="absolute inset-0 mainDark"></div>
+		<div class="absolute inset-0 -z-1 mainDark"></div>
+		<Header />
 		<slot />
 	</body>
 </html>

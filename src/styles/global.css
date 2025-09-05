@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@import '@fontsource-variable/raleway';
+@import '@fontsource-variable/onest';
+
+@theme {
+  --font-sans: "Raleway Variable", sans-serif;
+  --font-monospace: 'Onest Variable', monospace;
+}
+
+/* Habilitar dark mode basado en clase */
+@variant dark (&:where(.dark, .dark *));
