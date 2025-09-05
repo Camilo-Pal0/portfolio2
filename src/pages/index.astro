@@ -8,15 +8,214 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
 	<!-- Main content -->
 	<main
-	class="flex justify-center items-center"
+	class="min-h-[100dvh] flex mt-5"
 	>
 		<section
 		class="p-2"
 		>
 			<h1
 			id="typing-text"
-			class="font-monospace  max-w-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent text-5xl my-5 p-1 animated">
-			y disfruto crear experiencias digitales.</h1>
+			class="font-monospace  max-w-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent text-5xl my-5 p-1 animated"
+			></h1>
 		</section>
 	</main>
+
+<!-- script para texto animado-->
+<script is:inline>
+class TypingAnimation {
+    constructor(elementId, phrases, options = {}) {
+        this.element = document.getElementById(elementId);
+        this.phrases = phrases;
+        
+        // Configuración optimizada
+        this.config = {
+            typingSpeed: options.typingSpeed || 80,
+            erasingSpeed: options.erasingSpeed || 30,
+            pauseAfterType: options.pauseAfterType || 2000,
+            pauseAfterErase: options.pauseAfterErase || 500,
+            ...options
+        };
+        
+        // Estado
+        this.currentPhraseIndex = 0;
+        this.currentCharIndex = 0;
+        this.isTyping = true;
+        this.isRunning = false;
+        this.animationId = null;
+        
+        if (!this.element) {
+            console.error('Elemento no encontrado:', elementId);
+            return;
+        }
+        
+        this.log('Inicializado correctamente');
+        this.start();
+    }
+
+    
+    log(message) {
+        /* console.log(`TypingAnimation: ${message}`); */
+    }
+    
+    start() {
+        if (this.isRunning) return;
+        this.isRunning = true;
+        this.showCursor();
+        this.log('Animación iniciada');
+        this.scheduleNext();
+    }
+    
+    stop() {
+        this.isRunning = false;
+        if (this.animationId) {
+            clearTimeout(this.animationId);
+            this.animationId = null;
+        }
+        this.hideCursor();
+        this.log('Animación detenida');
+    }
+    
+    showCursor() {
+        // El cursor ::after siempre está visible, no necesita control
+    }
+    
+    hideCursor() {
+        // El cursor ::after siempre está visible, no necesita control
+    }
+    
+    scheduleNext() {
+        if (!this.isRunning) return;
+        
+        let delay;
+        
+        if (this.isTyping) {
+            delay = this.typeNextCharacter();
+        } else {
+            delay = this.eraseNextCharacter();
+        }
+        
+        this.animationId = setTimeout(() => {
+            this.scheduleNext();
+        }, delay);
+    }
+    
+    typeNextCharacter() {
+        const currentPhrase = this.phrases[this.currentPhraseIndex];
+        
+        if (this.currentCharIndex < currentPhrase.length) {
+            // Escribir el siguiente carácter
+            this.currentCharIndex++;
+            this.updateDisplay();
+            this.log(`Escribiendo: "${this.getDisplayText()}"`);
+            
+            // Velocidad variable: más lento en puntuación
+            const currentChar = currentPhrase[this.currentCharIndex - 1];
+            const isPunctuation = /[.!?,:;]/.test(currentChar);
+            return isPunctuation ? this.config.typingSpeed * 2 : this.config.typingSpeed;
+        } else {
+            // Frase completa, cambiar a modo borrado
+            this.log(`Frase completa: "${currentPhrase}"`);
+            this.isTyping = false;
+            return this.config.pauseAfterType;
+        }
+    }
+    
+    eraseNextCharacter() {
+        const currentPhrase = this.phrases[this.currentPhraseIndex];
+        const nextPhrase = this.phrases[(this.currentPhraseIndex + 1) % this.phrases.length];
+        
+        // Determinar hasta dónde borrar
+        const commonPrefix = this.findCommonPrefix(currentPhrase, nextPhrase);
+        const eraseToIndex = commonPrefix.length;
+        
+        if (this.currentCharIndex > eraseToIndex) {
+            // Borrar carácter
+            this.currentCharIndex--;
+            this.updateDisplay();
+            this.log(`Borrando: "${this.getDisplayText()}"`);
+            return this.config.erasingSpeed;
+        } else {
+            // Cambiar a la siguiente frase
+            this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
+            this.isTyping = true;
+            this.log(`Cambiando a frase ${this.currentPhraseIndex + 1}`);
+            return this.config.pauseAfterErase;
+        }
+    }
+    
+    findCommonPrefix(str1, str2) {
+        let commonPrefix = '';
+        const minLength = Math.min(str1.length, str2.length);
+        
+        for (let i = 0; i < minLength; i++) {
+            if (str1[i] === str2[i]) {
+                commonPrefix += str1[i];
+            } else {
+                break;
+            }
+        }
+        
+        return commonPrefix;
+    }
+    
+    updateDisplay() {
+        const currentPhrase = this.phrases[this.currentPhraseIndex];
+        const displayText = currentPhrase.substring(0, this.currentCharIndex);
+        this.element.textContent = displayText;
+    }
+    
+    getDisplayText() {
+        return this.element.textContent;
+    }
+    
+    // Método público para cambiar velocidades
+    updateConfig(newConfig) {
+        this.config = { ...this.config, ...newConfig };
+        this.log('Configuración actualizada');
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    const phrases = [
+        "¡Buenas! soy Camilo...",
+        "¡Buenas! soy diseñador",
+        "¡Buenas! soy programador",
+        "y disfruto crear experiencias digitales."
+    ];
+    
+    const typingAnimation = new TypingAnimation('typing-text', phrases, {
+        typingSpeed: 100,        // Velocidad de tipeo
+        erasingSpeed: 50,        // Velocidad de borrado
+        pauseAfterType: 2000,    // Pausa después de completar
+        pauseAfterErase: 300     // Pausa antes de empezar nueva frase
+    });
+    
+    // Controles de teclado (opcional)
+    document.addEventListener('keydown', function(e) {
+        switch(e.key) {
+            case ' ':
+                e.preventDefault();
+                if (typingAnimation.isRunning) {
+                    typingAnimation.stop();
+                } else {
+                    typingAnimation.start();
+                }
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                typingAnimation.updateConfig({
+                    typingSpeed: Math.max(20, typingAnimation.config.typingSpeed - 10)
+                });
+                break;
+            case 'ArrowDown':
+                e.preventDefault();
+                typingAnimation.updateConfig({
+                    typingSpeed: Math.min(200, typingAnimation.config.typingSpeed + 10)
+                });
+                break;
+        }
+    });
+});
+</script>
 </Layout>
