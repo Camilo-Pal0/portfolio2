@@ -1,23 +1,78 @@
 ---
+import Badge from '../components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
+import SocialPills from '../components/SocialPills.astro'
+
+import GitHubIcon from '../assets/icons/GitHub.astro'
+import LinkedInIcon from '../assets/icons/LinkedIn.astro'
+import MailIcon from '../assets/icons/Mail.astro'
+
+import ilustracion from '../assets/img/miCaricatura.webp'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<!-- Main content, acá (Main) se modifica las posiciones del content -->
+	<!-- Main content, acá (Main) se modifica las posiciones del content para el dektstop mode -->
 	<main
-	class="min-h-[100dvh]"
+	class="relative min-h-[100dvh]"
 	>
-		<section
-		class="flex items-center p-2"
-		>
-			<h1
-			id="typing-text"
-			class="font-monospace  max-w-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent text-5xl px-1 py-15 animated"
-			></h1>
-		</section>
+		<div>
+			<!-- Textos -->
+			<section
+			class="flex items-center p-2"
+			>
+				<h1
+				id="typing-text"
+				class="font-monospace  max-w-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent text-5xl px-1 py-15 animated"
+				></h1>
+			</section>
+	
+			<!-- Badge e icnonos -->
+			<section
+			class="absolute left-1/2 top-60 -translate-x-1/2 space-y-2 flex  flex-col justify-center"
+			>
+				<!-- Bagde -->
+				<div class="flex justify-center items-center">
+					<Badge>Disponible para trabajar</Badge>
+				</div>
+				
+				<!-- Iconos -->
+				<nav class="flex justify-center items-center space-x-3">
+					<SocialPills
+					href="https://github.com/Camilo-Pal0"
+					>
+						<GitHubIcon/>
+						<span class="hidden">GitHub</span>
+					</SocialPills>
+
+					<SocialPills
+					href="https://www.linkedin.com/in/camilo-palomeque-2b25322ba/"
+					>
+						<LinkedInIcon/>
+						<span class="hidden">LinkedIn</span>
+					</SocialPills>
+
+					<SocialPills
+					href="mailto:camilopalomeque79@gmail.com"
+					>
+						<MailIcon/>
+						<span class="hidden">Camilopalomeque79@gmail.com</span>
+					</SocialPills>
+				</nav>
+			</section>
+
+			<!-- Ilustración -->
+			<section 
+			class="absolute bottom-0 flex items-center justify-center"
+			>
+				<div>
+					<img class="w-100" src={ilustracion.src} alt="">
+				</div>
+			</section>
+		</div>
+
 	</main>
 
 <!-- script para texto animado-->
