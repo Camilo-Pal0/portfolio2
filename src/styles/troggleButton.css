@@ -68,3 +68,36 @@
   transform: rotate(225deg);
   transition-delay: 0s, calc(0s + 0.35s);
 }
+
+/* === ANIMACIÓN DEL MENÚ === */
+.mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.mini-checkbox:checked ~ .mobile-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Animación de los elementos del menú */
+.menu-item {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.4s ease-out;
+}
+
+/* Delay escalonado para cada elemento */
+.menu-item:nth-child(1) { transition-delay: 0.1s; }
+.menu-item:nth-child(2) { transition-delay: 0.2s; }
+.menu-item:nth-child(3) { transition-delay: 0.3s; }
+.menu-item:nth-child(4) { transition-delay: 0.4s; }
+
+/* Cuando el menú está abierto */
+.mini-checkbox:checked ~ .mobile-menu .menu-item {
+  opacity: 1;
+  transform: translateX(0);
+}

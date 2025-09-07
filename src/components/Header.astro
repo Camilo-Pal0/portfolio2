@@ -1,4 +1,11 @@
 ---
+import MenuPills from './MenuPills.astro'
+
+import HomeIcon from '../assets/icons/Home.astro'
+import ExperienceIcon from '../assets/icons/Experience.astro'
+import ProjectsIcon from '../assets/icons/Projects.astro'
+import ContactIcon from '../assets/icons/Contact.astro'
+
 import '../styles/switchTheme.css'
 import '../styles/troggleButton.css'
 ---
@@ -51,7 +58,7 @@ class="fixed top-0 w-full z-[999] bg-gray-300/10 backdrop-blur-3xl md:bg-gray-60
                 </label>
             </div>
 
-            <!-- Botones -->
+            <!-- links -->
             <div class="hidden md:flex flex-row space-x-9">
                 <a class="py-1 px-2" href="/">Home</a>
                 <a class="py-1 px-2" href="/about">About</a>
@@ -67,11 +74,43 @@ class="fixed top-0 w-full z-[999] bg-gray-300/10 backdrop-blur-3xl md:bg-gray-60
                     <div class="mini-bar mini-bar--middle"></div>
                     <div class="mini-bar mini-bar--bottom"></div>
                 </label>
+
+                <!-- Menu mobile -->
+                <div class="mobile-menu md:hidden absolute top-12 left-0">
+                    <div>
+                        <nav class="flex flex-col space-y-2 dark:text-white">
+                            <div class="menu-item">
+                                <MenuPills>
+                                    <HomeIcon/>
+                                    <span class="font-sans">Home</span>
+                                </MenuPills>
+                            </div>
+                            <div class="menu-item">
+                                <MenuPills>
+                                    <ExperienceIcon/>
+                                    <span class="font-sans">Experience</span>
+                                </MenuPills>
+                            </div>
+                            <div class="menu-item">
+                                <MenuPills>
+                                    <ProjectsIcon/>
+                                    <span class="font-sans">Projects</span>
+                                </MenuPills>
+                            </div>
+                            <div class="menu-item">
+                                <MenuPills>
+                                    <ContactIcon/>
+                                    <span class="font-sans">Contact</span>
+                                </MenuPills>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
 
-    <!-- Hover del menú -->
+    <!-- Cuadro para hover del menú -->
     <div
         id="menu-backdrop"
         class={`
@@ -85,7 +124,7 @@ class="fixed top-0 w-full z-[999] bg-gray-300/10 backdrop-blur-3xl md:bg-gray-60
     ></div>
 </header>
 
-<!-- Animación del hover del menú -->
+<!-- Script animación del hover del menú -->
 <script>
     const listItem = document.querySelectorAll("#landing-header a")
     const menuBackdrop = document.querySelector("#menu-backdrop") as HTMLElement
