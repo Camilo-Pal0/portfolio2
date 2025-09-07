@@ -17,8 +17,8 @@ import Header from "../components/Header.astro"
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<div class="absolute inset-0 -z-1 mainDark"></div>
-<!-- 		<div class="absolute inset-0 -z-10 mainLight"></div> -->
+		<div class="absolute inset-0 -z-1 transition-opacity duration-700 ease-in-out mainDark"></div>
+		<div class="absolute inset-0 -z-10 transition-opacity duration-700 ease-in-out mainLight"></div>
 		<Header />
 		<slot />
 	</body>
@@ -32,3 +32,17 @@ import Header from "../components/Header.astro"
 		height: 100%;
 	}
 </style>
+
+<script is:inline>
+  const checkbox = document.getElementById("theme-toggle");
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+    }
+  });
+</script>

@@ -28,11 +28,11 @@
   transform: scale(0);
 }
 
-#switch:checked + .icon--moon {
+#theme-toggle:checked + .icon--moon {
   transform: rotate(360deg) scale(0);
 }
 
-#switch:checked ~ .icon--sun {
+#theme-toggle:checked ~ .icon--sun {
   transition-delay: 200ms;
   transform: scale(1) rotate(360deg);
 }
