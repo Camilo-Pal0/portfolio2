@@ -34,15 +34,58 @@ import Header from "../components/Header.astro"
 </style>
 
 <script is:inline>
-  const checkbox = document.getElementById("theme-toggle");
+const checkbox = document.getElementById("theme-toggle");
 
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-    }
-  });
+// Función para detectar la preferencia del sistema
+function getSystemTheme() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches 
+    ? 'dark' 
+    : 'light';
+}
+
+// Función para aplicar el tema
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+  }
+}
+
+// Función para sincronizar el checkbox con el tema actual
+function syncCheckbox(theme) {
+  checkbox.checked = theme === 'light';
+}
+
+// Inicializar el tema basado en preferencia guardada o del sistema
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const systemTheme = getSystemTheme();
+  const initialTheme = savedTheme || systemTheme;
+  
+  applyTheme(initialTheme);
+  syncCheckbox(initialTheme);
+}
+
+// Escuchar cambios en el checkbox
+checkbox.addEventListener("change", () => {
+  const newTheme = checkbox.checked ? 'light' : 'dark';
+  applyTheme(newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
+// Escuchar cambios en la preferencia del sistema
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  // Solo cambiar si no hay preferencia guardada del usuario
+  if (!localStorage.getItem('theme')) {
+    const systemTheme = e.matches ? 'dark' : 'light';
+    applyTheme(systemTheme);
+    syncCheckbox(systemTheme);
+  }
+});
+
+// Inicializar cuando se carga la página
+initializeTheme();
 </script>
