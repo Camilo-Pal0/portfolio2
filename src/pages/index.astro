@@ -18,59 +18,75 @@ import '../styles/cursorAnimated.css'
 <Layout>
 	<!-- Main content, acá (Main) se modifica las posiciones del content para el dektstop mode -->
 	<main
-	class="min-h-[100dvh]"
+	class="min-h-[100dvh] md:flex md:items-center"
 	>
-		<div>
+		<div class="w-full">
 			<!-- Textos -->
 			<section
-			class="flex items-center p-2"
+			class="flex flex-col p-2 max-w-5xl mx-auto"
 			>
 				<h1
 				id="typing-text"
-				class="font-monospace  max-w-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent text-5xl px-1 py-15 animated"
+				class="font-monospace max-w-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent text-5xl px-1 pt-15 pb-2 md:pt-1 md:pb-5 md:px-3 animated"
 				></h1>
+
+                <div
+                class="hidden md:flex flex-col md:px-3 text-lg text-gray-700 dark:text-white"
+                >
+                    <p>
+                    <span 
+                    class="font-bold text-black dark:text-amber-100"
+                    >
+                        Desarrollador Frontend con conocimientos en backend, ubicado en Colombia.
+                    </span>
+                        Me especializo en crear sitios web responsivos y visualmente atractivos, combinando un diseño UI limpio con funcionalidad sólida. Aunque mi enfoque principal es el desarrollo frontend, también aprovecho las tecnologías backend para entregar soluciones web completas.
+                    </p>
+                </div>
 			</section>
 	
-			<!-- Badge e icnonos -->
+			<!-- Badge y redes -->
 			<section
-			class="absolute left-1/2 top-65 -translate-x-1/2 space-y-2 flex flex-col justify-center z-[900]"
+			class="absolute left-1/2 top-65 -translate-x-1/2 space-y-2 flex flex-col justify-center max-w-5xl md:mx-auto md:static md:translate-x-0 md:left-auto md:top-auto md:mt-3 md:space-y-3"
 			>
 				<!-- Bagde -->
 				<div class="flex justify-center items-center">
 					<Badge>Disponible para trabajar</Badge>
 				</div>
 				
-				<!-- Iconos -->
+				<!-- Redes -->
 				<nav class="flex justify-center items-center space-x-3">
 					<SocialPills
 					href="https://github.com/Camilo-Pal0"
 					>
 						<GitHubIcon/>
-						<span class="hidden">GitHub</span>
+						<span class="hidden md:flex">GitHub</span>
 					</SocialPills>
 
 					<SocialPills
 					href="https://www.linkedin.com/in/camilo-palomeque-2b25322ba/"
 					>
 						<LinkedInIcon/>
-						<span class="hidden">LinkedIn</span>
+						<span class="hidden md:flex">LinkedIn</span>
 					</SocialPills>
 
 					<SocialPills
 					href="mailto:camilopalomeque79@gmail.com"
 					>
 						<MailIcon/>
-						<span class="hidden">Camilopalomeque79@gmail.com</span>
+						<span class="hidden md:flex">Camilopalomeque79@gmail.com</span>
 					</SocialPills>
 				</nav>
 			</section>
 
 			<!-- Ilustración -->
 			<section 
-			class="absolute bottom-0 w-full flex items-center justify-center leading-none"
+			class="absolute bottom-0 w-full flex items-center justify-center leading-none md:z-[10] pointer-events-none"
 			>
 				<div>
-					<img class="w-65 block" src={ilustracion.src} alt="">
+					<img 
+                    class="w-65 block" 
+                    src={ilustracion.src} 
+                    alt="Ilustración personal">
 				</div>
 			</section>
 		</div>
