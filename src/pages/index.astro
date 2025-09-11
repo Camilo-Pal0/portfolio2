@@ -2,24 +2,30 @@
 import Badge from '../components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
 import SocialPills from '../components/SocialPills.astro'
+import Experience from '../components/Experience.astro';
 
 import GitHubIcon from '../assets/icons/GitHub.astro'
 import LinkedInIcon from '../assets/icons/LinkedIn.astro'
 import MailIcon from '../assets/icons/Mail.astro'
+import ExperienceIcon from '../assets/icons/Experience.astro'
 
 import ilustracion from '../assets/img/miCaricatura.webp'
 
 import '../styles/cursorAnimated.css'
 
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout
+title = "Portfolio de Palomeque - Desarrollador web"
+description = ""
+>
 	<!-- Main content, acá (Main) se modifica las posiciones del content para el dektstop mode -->
 	<main
-	class="min-h-[100dvh] md:flex md:items-center "
-	>
+	class="min-h-[100dvh] md:flex md:items-center border-b border-gray-300 dark:border-gray-900 dark:shadow-white/20 shadow-lg"
+	>   
 		<div class="w-full">
 			<!-- Textos -->
 			<section
@@ -91,6 +97,24 @@ import '../styles/cursorAnimated.css'
 			</section>
 		</div>
 	</main>
+
+    <!-- Sección experiencia -->
+    <section
+    id="experiencia"
+    class="min-h-[60dvh] flex flex-col justify-center space-y-7"
+    >
+        <!-- Título -->
+        <div 
+        class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent w-full max-w-5xl mx-auto flex items-center gap-x-3 pl-5 lg:pl-20"
+        >
+            <ExperienceIcon class="text-blue-500 size-8"/>
+            <h2 class="font-monospace font-bold text-3xl">Experiencia</h2>
+        </div>
+        <!-- Timeline -->
+        <div class="flex max-w-5xl w-full mx-auto items-center justify-center pl-7 pr-3 lg:pl-20">
+            <Experience/>
+        </div>
+    </section>
 
 <!-- script para texto animado-->
 <script is:inline>

@@ -60,10 +60,10 @@ class="fixed top-0 w-full z-[999] bg-gray-300/10 backdrop-blur-3xl md:bg-gray-60
 
             <!-- links -->
             <div class="hidden md:flex flex-row space-x-9">
-                <a class="py-1 px-2" href="/">Home</a>
-                <a class="py-1 px-2" href="/about">About</a>
-                <a class="py-1 px-2" href="/projects">Projects</a>
-                <a class="py-1 px-2" href="/contact">Contact</a>
+                <a class="py-1 px-2" href="#top">Inicio</a>
+                <a class="py-1 px-2" href="#experiencia">Experiencia</a>
+                <a class="py-1 px-2" href="#proyectos">Proyectos</a>
+                <a class="py-1 px-2" href="#contacto">Contacto</a>
             </div>
 
             <!-- Mobile button - menu -->
@@ -81,27 +81,35 @@ class="fixed top-0 w-full z-[999] bg-gray-300/10 backdrop-blur-3xl md:bg-gray-60
                     <div>
                         <nav class="flex flex-col space-y-2 dark:text-white">
                             <div class="menu-item">
-                                <MenuPills>
+                                <MenuPills
+                                href="#home"
+                                >
                                     <HomeIcon/>
-                                    <span class="font-sans">Home</span>
+                                    <span class="font-sans">Inicio</span>
                                 </MenuPills>
                             </div>
                             <div class="menu-item">
-                                <MenuPills>
+                                <MenuPills
+                                href="#experiencia"
+                                >
                                     <ExperienceIcon/>
-                                    <span class="font-sans">Experience</span>
+                                    <span class="font-sans">Experiencia</span>
                                 </MenuPills>
                             </div>
                             <div class="menu-item">
-                                <MenuPills>
+                                <MenuPills
+                                href="#proyectos"
+                                >
                                     <ProjectsIcon/>
-                                    <span class="font-sans">Projects</span>
+                                    <span class="font-sans">Projectos</span>
                                 </MenuPills>
                             </div>
                             <div class="menu-item">
-                                <MenuPills>
+                                <MenuPills
+                                href="#contacto"
+                                >
                                     <ContactIcon/>
-                                    <span class="font-sans">Contact</span>
+                                    <span class="font-sans">Contacto</span>
                                 </MenuPills>
                             </div>
                         </nav>

@@ -1,0 +1,25 @@
+---
+import Certificado from "../assets/icons/Certificado.astro";
+import SocialPills from "./SocialPills.astro";
+
+const {title, description, link, date} = Astro.props;
+---
+
+<div class="absolute w-3 h-3 bg-blue-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900">
+</div>
+<time class="mb-1 text-sm font-sans leading-none text-blue-400 dark:text-blue-300">{date}
+</time>
+<h3 class="font-sans text-lg font-semibold text-gray-900 dark:text-white">{title}
+</h3>
+<p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{description}
+</p>
+{
+    link && (
+        <SocialPills
+        class="inline-flex"
+        >
+            <Certificado class="size-5"/>
+            Ver certificado
+        </SocialPills>
+    )
+}

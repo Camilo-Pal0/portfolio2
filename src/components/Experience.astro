@@ -1,0 +1,23 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+  {
+    date: 'Enero 2025',
+    title: 'Soporte y Desarrollo Web — 1cero1',
+    description: 'Encargado de dar soporte y mantenimiento a los sitios web de municipios bajo convenio. Realicé desde ajustes puntuales como cambios de estilo, hasta rediseños completos para modernizar portales con tecnologías antiguas, asegurando funcionalidad y mejor experiencia de usuario.',
+    link: '#'
+  },
+]
+---
+---
+
+<ol class="relative border-s border-purple-400">                  
+    {
+        EXPERIENCE.map(experience =>(
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }
+</ol>
