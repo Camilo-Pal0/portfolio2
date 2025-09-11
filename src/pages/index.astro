@@ -22,9 +22,22 @@ import '../styles/cursorAnimated.css'
 title = "Portfolio de Palomeque - Desarrollador web"
 description = "Desarrollador web con más de 6 meses de experiencia"
 >
+<style>
+:root {
+  --vh: 1vh;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --vh: 1svh; /* Small viewport height - más estable en móvil */
+  }
+}
+</style>
+
 	<!-- Main content, acá (Main) se modifica las posiciones del content para el dektstop mode -->
 	<main
-	class="min-h-[100dvh] md:flex md:items-center border-b border-gray-300 dark:border-gray-900 dark:shadow-white/20 shadow-lg"
+	class="border-b border-gray-300 dark:border-gray-900 dark:shadow-white/20 shadow-lg md:flex md:items-center"
+	style="min-height: calc(var(--vh) * 100);"
 	>   
 		<div class="w-full">
 			<!-- Textos -->
@@ -101,7 +114,8 @@ description = "Desarrollador web con más de 6 meses de experiencia"
     <!-- Sección experiencia -->
     <section
     id="experiencia"
-    class="min-h-[80dvh] flex flex-col justify-center space-y-7"
+    class="flex flex-col justify-center space-y-7"
+    style="min-height: calc(var(--vh) * 80);"
     >
         <!-- Título -->
         <div 
