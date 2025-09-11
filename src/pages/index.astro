@@ -22,24 +22,27 @@ import '../styles/cursorAnimated.css'
 title = "Portfolio de Palomeque - Desarrollador web"
 description = "Desarrollador web con más de 6 meses de experiencia"
 >
+<!-- Solución de altura de viewport estable en móviles  -->
 <style>
-:root {
-  --vh: 1vh;
-}
+    :root {
+    --vh: 1vh;
+    }
 
-@media (max-width: 768px) {
-  :root {
-    --vh: 1svh; /* Small viewport height - más estable en móvil */
-  }
-}
+    @media (max-width: 768px) {
+    :root {
+        --vh: 1svh; /* Small viewport height - más estable en móvil */
+    }
+    }
 </style>
 
 	<!-- Main content, acá (Main) se modifica las posiciones del content para el dektstop mode -->
 	<main
-	class="border-b border-gray-300 dark:border-gray-900 dark:shadow-white/20 shadow-lg md:flex md:items-center"
+	class="border-b border-gray-300 shadow-lg dark:border-gray-900 dark:shadow-white/20 md:flex md:items-center"
 	style="min-height: calc(var(--vh) * 100);"
 	>   
-		<div class="w-full">
+		<div 
+        id="main-content"
+        class="w-full">
 			<!-- Textos -->
 			<section
 			class="flex flex-col p-2 max-w-5xl mx-auto 2xl:pt-0"
@@ -114,21 +117,28 @@ description = "Desarrollador web con más de 6 meses de experiencia"
     <!-- Sección experiencia -->
     <section
     id="experiencia"
-    class="flex flex-col justify-center space-y-7"
+    class="flex flex-col justify-center space-y-7 border-b border-gray-300 shadow-lg dark:border-gray-900 dark:shadow-white/20"
     style="min-height: calc(var(--vh) * 80);"
     >
         <!-- Título -->
-        <div 
+        <div
+        id="experience-title"
         class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent w-full max-w-5xl mx-auto flex items-center gap-x-3 pl-5 lg:pl-20"
         >
             <ExperienceIcon class="text-blue-500 size-8"/>
             <h2 class="font-monospace font-bold text-3xl">Experiencia</h2>
         </div>
         <!-- Timeline -->
-        <div class="flex max-w-5xl w-full mx-auto items-center justify-center pl-7 pr-3 lg:pl-20">
+        <div
+        id="timeline" 
+        class="flex max-w-5xl w-full mx-auto items-center justify-center pl-7 pr-3 lg:pl-20"
+        >
             <Experience/>
         </div>
     </section>
+
+    <!-- Sección proyectos -->
+    
 
 <!-- script para texto animado-->
 <script is:inline>

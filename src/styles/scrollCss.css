@@ -1,0 +1,21 @@
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 80%;
+    }
+
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+#experience-title, #timeline {
+    view-timeline-name: --reveal;
+
+    animation-name: show;
+    animation-fill-mode: both;
+
+    animation-timeline: --reveal;
+    animation-range: entry 50% cover 30%;
+}

@@ -2,9 +2,12 @@
 /* CSS */
 import "../styles/global.css";
 import "../styles/background.css"
+import "../styles/scrollCss.css"
 
 /* Components */
 import Header from "../components/Header.astro"
+
+
 
 const {title, description} = Astro.props;
 ---
@@ -18,12 +21,17 @@ const {title, description} = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- Script para ScrollReveal -->
+		<script is:inline src="/js/scrollreveal.js"></script>
 	</head>
 	<body>
 		<div class="fixed inset-0 -z-1 transition-opacity duration-700 ease-in-out mainDark"></div>
 		<div class="fixed inset-0 -z-10 transition-opacity duration-700 ease-in-out mainLight"></div>
 		<Header />
 		<slot />
+
+		<!-- Script para ScrollReveal -->
+		<script is:inline src="/js/animation.js"></script>
 	</body>
 </html>
 
