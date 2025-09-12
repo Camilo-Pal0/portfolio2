@@ -8,10 +8,13 @@ import GitHubIcon from '../assets/icons/GitHub.astro'
 import LinkedInIcon from '../assets/icons/LinkedIn.astro'
 import MailIcon from '../assets/icons/Mail.astro'
 import ExperienceIcon from '../assets/icons/Experience.astro'
+import ProjectsIcon from '../assets/icons/Projects.astro'
 
 import ilustracion from '../assets/img/miCaricatura.webp'
 
 import '../styles/cursorAnimated.css'
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -115,30 +118,46 @@ description = "Desarrollador web con más de 6 meses de experiencia"
 	</main>
 
     <!-- Sección experiencia -->
-    <section
-    id="experiencia"
-    class="flex flex-col justify-center space-y-7 border-b border-gray-300 shadow-lg dark:border-gray-900 dark:shadow-white/20"
-    style="min-height: calc(var(--vh) * 80);"
-    >
-        <!-- Título -->
-        <div
-        id="experience-title"
-        class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent w-full max-w-5xl mx-auto flex items-center gap-x-3 pl-5 lg:pl-20"
+    <SectionContainer id="experiencia">
+        <div 
+        class="max-w-5xl mx-auto px-5 lg:px-20 space-y-3"
         >
-            <ExperienceIcon class="text-blue-500 size-8"/>
-            <h2 class="font-monospace font-bold text-3xl">Experiencia</h2>
+            <!-- Título -->
+            <div
+                id="experience-title"
+                class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent flex items-center gap-x-3"
+            >
+                <ExperienceIcon class="text-blue-500 size-8"/>
+                <h2 class="font-monospace font-bold text-3xl">Experiencia</h2>
+            </div>
+            
+            <!-- Timeline -->
+            <div id="timeline">
+                <Experience/>
+            </div>
         </div>
-        <!-- Timeline -->
-        <div
-        id="timeline" 
-        class="flex max-w-5xl w-full mx-auto items-center justify-center pl-7 pr-3 lg:pl-20"
-        >
-            <Experience/>
-        </div>
-    </section>
+    </SectionContainer>
 
     <!-- Sección proyectos -->
-    
+    <SectionContainer id="proyectos">
+        <div 
+        class="max-w-5xl mx-auto px-5 lg:px-20 space-y-5"
+        >
+            <!-- Título -->
+            <div
+                id="projects-title"
+                class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent flex items-center gap-x-3"
+            >
+                <ProjectsIcon class="text-blue-500 size-8"/>
+                <h2 class="font-monospace font-bold text-3xl">Proyectos</h2>
+            </div>
+            
+            <!--  -->
+            <div>
+                <Projects/>     
+            </div>
+        </div>
+    </SectionContainer>
 
 <!-- script para texto animado-->
 <script is:inline>
