@@ -3,6 +3,7 @@ import TailwindIcon from '../assets/icons/Tailwind.astro'
 import SprintBootIcon from '../assets/icons/SpringBoot.astro'
 import ReactIcon from '../assets/icons/React.astro'
 import PythonIcon from '../assets/icons/Python.astro'
+import MySqlIcon from '../assets/icons/MySql.astro'
 
 const TAGS = {
     REACT: {
@@ -24,7 +25,12 @@ const TAGS = {
         name: 'Python',
         class: 'bg-[#b0dbff] text-gray-800 dark:bg-[#1c374f] dark:text-white',
         icon: PythonIcon
-    }
+    },
+    MYSQL: {
+        name: 'MySQL',
+        class: 'bg-[#ffc880] text-gray-800 dark:bg-[#eb8500] dark:text-white',
+        icon: MySqlIcon
+    },
 }
 
 const PROJECTS = [
@@ -35,22 +41,30 @@ const PROJECTS = [
         github: '#',
         image: '/projects/asistencias.webp',
         tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.SPRINGBOOT, TAGS.PYTHON]
-    }
+    },
+    {
+        title: 'Gestión educativa',
+        description: 'Plataforma web integral desarrollada para la gestión académica universitaria que permite administrar cursos, profesores, estudiantes y el control de asistencias de manera eficiente. El sistema incluye análisis de datos en tiempo real con predicción de deserción estudiantil basada en patrones de asistencia.',
+        link: '#',
+        github: '#',
+        image: '/projects/asistencias.webp',
+        tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.SPRINGBOOT, TAGS.PYTHON, TAGS.MYSQL]
+    },
 ]
 ---
 
 {
     PROJECTS.map(({title, description, tags, image}) => (
-        <article class="space-y-2">
+        <article class="space-y-1">
             <img
             class="rounded shadow-2xl shadow-black/10 dark:shadow-white/10" 
             src={image} alt={`Captura de pantalla del proyecto ${image}`}
             >
             <h3 class="font-monospace font-bold text-2xl mt-2 text-gray-600 dark:text-amber-100">{title}</h3>
-            <p class="text-gray-700 dark:text-white text-pretty mb-4">{description}</p>
+            <p class="text-gray-700 dark:text-white text-pretty mb-2">{description}</p>
             <ul class="text-white flex flex-wrap gap-2">
                 {tags.map(tag =>(
-                <li >
+                <li>
                     <span class={`flex items-center justify-center rounded-lg py-1 px-2 gap-x-1 ${tag.class}`}>
                         <tag.icon class="size-5"/>
                         {tag.name}

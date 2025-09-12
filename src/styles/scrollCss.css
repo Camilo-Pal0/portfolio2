@@ -1,4 +1,4 @@
-@keyframes show {
+/* @keyframes show {
     from {
         opacity: 0;
         scale: 80%;
@@ -19,3 +19,4 @@
     animation-timeline: --reveal;
     animation-range: entry 50% cover 30%;
 }
+ */
