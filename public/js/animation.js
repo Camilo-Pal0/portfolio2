@@ -13,13 +13,7 @@ sr.reveal('#main-content', {
 });
 
 //Títulos
-sr.reveal('#experience-title', {
-    duration: 3000,
-    origin: 'left',
-    distance: '100px',
-    reset: true
-});
-sr.reveal('#projects-title', {
+sr.reveal('#title', {
     duration: 3000,
     origin: 'left',
     distance: '100px',

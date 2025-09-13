@@ -30,7 +30,7 @@
 }
 
 .logo-track {
-  animation: infinite-scroll 15s linear infinite;
+  animation: infinite-scroll 20s linear infinite;
   width: fit-content;
 }
 
@@ -41,4 +41,17 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
 }

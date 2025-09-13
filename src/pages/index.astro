@@ -19,8 +19,10 @@ import TailwindIcon from '../assets/icons/Tailwind.astro'
 import HtmlIcon from '../assets/icons/Html.astro'
 import CssIcon from '../assets/icons/Css.astro'
 import AstroIcon from '../assets/icons/Astro.astro'
+import SobreMiIcon from '../assets/icons/SobreMi.astro'
 
 import ilustracion from '../assets/img/miCaricatura.webp'
+import ilustracion2 from '../assets/img/miCaricatura2.webp'
 
 import '../styles/cursorAnimated.css'
 
@@ -132,7 +134,7 @@ description = "Desarrollador web con más de 6 meses de experiencia"
         >
             <!-- Título -->
             <div
-                id="experience-title"
+                id="title"
                 class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent flex items-center gap-x-3"
             >
                 <ExperienceIcon class="text-blue-500 size-8"/>
@@ -146,6 +148,7 @@ description = "Desarrollador web con más de 6 meses de experiencia"
         </div>
     </SectionContainer>
 
+    <!-- Slider de logos -->
     <section 
     class="px-2 pt-2 pb-1 shadow-lg dark:border-gray-900 dark:shadow-white/20 lg:shadow-none logo-container"
     >
@@ -153,7 +156,8 @@ description = "Desarrollador web con más de 6 meses de experiencia"
         id="logo" 
         class="logo max-w-4xl w-full mx-auto bg-gradient-to-r from-white/10 to-purple-300 backdrop-blur-1xl rounded-lg overflow-hidden"
         >
-            <div class="logo-track flex items-center p-3 gap-x-5 md:gap-x-15">
+            <div 
+            class="logo-track flex items-center p-3 gap-x-5 md:gap-x-20">
                 <LaravelIcon class="size-10 flex-shrink-0"/>
                 <VueIcon class="size-10 flex-shrink-0"/>
                 <MySqlIcon class="size-10 flex-shrink-0"/>
@@ -182,7 +186,7 @@ description = "Desarrollador web con más de 6 meses de experiencia"
         >
             <!-- Título -->
             <div
-                id="projects-title"
+                id="title"
                 class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent flex items-center gap-x-3"
             >
                 <ProjectsIcon class="text-blue-500 size-8"/>
@@ -192,6 +196,51 @@ description = "Desarrollador web con más de 6 meses de experiencia"
             <!--  -->
             <div class="space-y-10">
                 <Projects/>     
+            </div>
+        </div>
+    </SectionContainer>
+
+    <!-- Sección proyectos -->
+    <SectionContainer id="sobremi">
+        <div 
+        class="max-w-5xl mx-auto px-5 lg:px-20 space-y-4"
+        >
+            <!-- Título -->
+            <div
+                id="title"
+                class="bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent flex items-center gap-x-3"
+            >
+                <SobreMiIcon class="text-blue-500 size-8"/>
+                <h2 class="font-monospace font-bold text-3xl">Sobre mí</h2>
+            </div>
+            
+            <!--  -->
+            <div 
+            class="p-6 bg-gray-300/20 shadow-lg dark:shadow-white/30 dark:bg-white/10 rounded-lg flex flex-col md:flex-row md:items-center gap-6"
+            >
+                <!-- Contenido de texto -->
+                <div class="flex-1">
+                    <p class="text-black dark:text-amber-100 text-base leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet qui a voluptates at ducimus corrupti adipisci earum. Itaque corrupti et dolores, rem, eveniet consequatur dolore adipisci, natus ducimus libero earum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet qui a voluptates at ducimus corrupti adipisci earum. Itaque corrupti et dolores, rem, eveniet consequatur dolore adipisci, natus ducimus libero earum?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet qui a voluptates at ducimus corrupti adipisci earum. Itaque corrupti et dolores, rem, eveniet consequatur dolore adipisci, natus ducimus libero earum?
+                    </p>
+                </div>
+                
+                <!-- Contenedor de la ilustración -->
+                <div 
+                class="flex justify-center md:justify-end md:flex-shrink-0"
+                >
+                    <div 
+                    class="w-48 h-48 bg-gradient-to-b from-white/20 to-purple-700 rounded-full flex items-center justify-center"
+                    >
+                        <img 
+                        class="w-full h-full object-cover float-animation" 
+                        src={ilustracion2.src} 
+                        alt="Ilustración" />
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </SectionContainer>
