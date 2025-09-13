@@ -3,18 +3,26 @@ import Badge from '../components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
 import SocialPills from '../components/SocialPills.astro'
 import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
 
 import GitHubIcon from '../assets/icons/GitHub.astro'
 import LinkedInIcon from '../assets/icons/LinkedIn.astro'
 import MailIcon from '../assets/icons/Mail.astro'
 import ExperienceIcon from '../assets/icons/Experience.astro'
 import ProjectsIcon from '../assets/icons/Projects.astro'
+import LaravelIcon from '../assets/icons/Laravel.astro'
+import VueIcon from '../assets/icons/Vue.astro'
+import MySqlIcon from '../assets/icons/MySql.astro'
+import JavaScriptIcon from '../assets/icons/JavaScript.astro'
+import TailwindIcon from '../assets/icons/Tailwind.astro'
+import HtmlIcon from '../assets/icons/Html.astro'
+import CssIcon from '../assets/icons/Css.astro'
+import AstroIcon from '../assets/icons/Astro.astro'
 
 import ilustracion from '../assets/img/miCaricatura.webp'
 
 import '../styles/cursorAnimated.css'
-import SectionContainer from '../components/SectionContainer.astro';
-import Projects from '../components/Projects.astro';
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -40,7 +48,7 @@ description = "Desarrollador web con más de 6 meses de experiencia"
 
 	<!-- Main content, acá (Main) se modifica las posiciones del content para el dektstop mode -->
 	<main
-	class="border-b border-gray-300 shadow-lg dark:border-gray-900 dark:shadow-white/20 md:flex md:items-center"
+	class="shadow-lg dark:shadow-white/20 md:flex md:items-center"
 	style="min-height: calc(var(--vh) * 100);"
 	>   
 		<div 
@@ -137,6 +145,35 @@ description = "Desarrollador web con más de 6 meses de experiencia"
             </div>
         </div>
     </SectionContainer>
+
+    <section 
+    class="px-2 pt-2 pb-1 shadow-lg dark:border-gray-900 dark:shadow-white/20 lg:shadow-none logo-container"
+    >
+        <div 
+        id="logo" 
+        class="logo max-w-4xl w-full mx-auto bg-gradient-to-r from-white/10 to-purple-300 backdrop-blur-1xl rounded-lg overflow-hidden"
+        >
+            <div class="logo-track flex items-center p-3 gap-x-5 md:gap-x-15">
+                <LaravelIcon class="size-10 flex-shrink-0"/>
+                <VueIcon class="size-10 flex-shrink-0"/>
+                <MySqlIcon class="size-10 flex-shrink-0"/>
+                <JavaScriptIcon class="size-10 flex-shrink-0"/>
+                <TailwindIcon class="size-10 flex-shrink-0"/>
+                <HtmlIcon class="size-10 flex-shrink-0"/>
+                <CssIcon class="size-10 flex-shrink-0"/>
+                <AstroIcon class="size-9 flex-shrink-0"/>
+                <!-- Duplicar para efecto infinito -->
+                <LaravelIcon class="size-10 flex-shrink-0"/>
+                <VueIcon class="size-10 flex-shrink-0"/>
+                <MySqlIcon class="size-10 flex-shrink-0"/>
+                <JavaScriptIcon class="size-10 flex-shrink-0"/>
+                <TailwindIcon class="size-10 flex-shrink-0"/>
+                <HtmlIcon class="size-10 flex-shrink-0"/>
+                <CssIcon class="size-10 flex-shrink-0"/>
+                <AstroIcon class="size-9 flex-shrink-0"/>
+            </div>
+        </div>
+    </section>
 
     <!-- Sección proyectos -->
     <SectionContainer id="proyectos">

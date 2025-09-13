@@ -20,3 +20,25 @@
     animation-range: entry 50% cover 30%;
 }
  */
+
+.logo-container {
+  overflow: hidden;
+}
+
+.logo {
+  overflow: hidden;
+}
+
+.logo-track {
+  animation: infinite-scroll 15s linear infinite;
+  width: fit-content;
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
